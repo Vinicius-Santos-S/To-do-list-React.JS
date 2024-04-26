@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    --light-green: #ccff00;
+    --yellow: #ffff28;
+    --orange: #ffa500;
+    --pink: #ff00ff;
+    --heavy-pink: #ff0080;
+    --Cool-gray: #3f3f3f;
+}
+
+* {
+    /* border: 1px solid black; */
+    padding: 0;
+    margin: 0;
+    /* overflow: hidden; */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: var(--Cool-gray);
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container .container-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 30px;
+}
+
+.container .container-box h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.container .container-box .container-input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 25px;
+    border-radius: 7px;
+    background-color: var(--Cool-gray);
+    margin-bottom: 10px;
+}
+
+.container .container-box .container-input input {
+    padding: 5px;
+    border: 1px solid transparent;
+    width: 100%;
+    box-shadow: 5px 3px 5px 3px rgba(0, 0, 0, 0.479);  
+    outline: none;
+    font-size: 15px;
+    border-radius: 7px;
+}
+
+.container .container-box .container-input button {
+    padding: 5px;
+    font-size: 15px;
+    border: 1px solid transparent;
+    box-shadow: 5px 3px 5px 3px rgba(0, 0, 0, 0.479);  
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.container .container-box .menu-btn {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Cool-gray);
+    z-index: 1;
+}
+
+.container .container-box .dropdown-menu {
+    display: flex;
+    position: relative;
+    top: -40px;
+    z-index: 0;
+    gap: 10px;
+    height: 0px;
+}
+
+.container .container-box .dropdown-menu ul {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+}
+
+.container .container-box .dropdown-menu ul li {
+    width: 50px;
+    cursor: pointer;
+    border-radius: 7px;
+    box-shadow: 5px 3px 5px 3px rgba(0, 0, 0, 0.479);  
+}
+
+.container .container-box .dropdown-menu input {
+    padding: 5px;
+    border: 1px solid transparent;
+    box-shadow: 5px 3px 5px 3px rgba(0, 0, 0, 0.479);  
+    outline: none;
+    font-size: 15px;
+    border-radius: 7px;
+}
+
+.container .container-box .dropdown-menu .preview-box {
+    display: flex;
+    width: 50px;
+    border-radius: 7px;
+    border: 1px solid black;
+    box-shadow: 5px 3px 5px 3px rgba(0, 0, 0, 0.479);    
+}
+
+.container .container-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.container .container-list .list-box {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    position: relative;
+    /* max-width: 1000px;
+    min-height: 30px; */
+    border-radius: 7px;
+    padding: 5px;
+    background-color: var(--Ghost-white);
+    box-shadow: 5px 3px 5px 3px rgba(0, 0, 0, 0.479);  
+}
+
+.container .container-list .list-box p {
+    font-size: 15px;
+    max-width: 450px;
+    white-space: pre-wrap; 
+    word-wrap: break-word;     
+}
+
+.container .container-list .list-box div {
+    display: flex;
+    cursor: pointer;     
+}
+
+
+.container button {
+    width: 60px;
+}
