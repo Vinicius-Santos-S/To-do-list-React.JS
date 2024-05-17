@@ -10,7 +10,6 @@ function App() {
       {id: 2, text:"item2", color: "#ffa500"}
     ]
   )
-  const [isOnFocus, setIsOnFocus] = useState({focus: false})
   const [menuState, setMenuState] = useState(false)
   const [HexValue,  setHexValue] = useState('')
 
@@ -59,7 +58,7 @@ function App() {
             transform: `rotate(${menuState ? '180' : '0'}deg)`
           }}
         >
-          <path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/>
+          <path fill={'#ffffff'} d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/>
         </svg>
       </div>
     )
@@ -94,15 +93,13 @@ function App() {
         <div className='container-input'>
           <input 
             ref={InputText} 
-            onFocus={() => setIsOnFocus({focus: true})}
-            onBlur={() => setIsOnFocus({focus: false})}
             type="text"
             placeholder="Write something" 
             onKeyDown={
               (e) => e.key === 'Enter' && addItem()
             }
           />
-          <motion.button 
+          <motion.button
             onClick={addItem}
             whileHover={{
               scale: 1.2
@@ -134,48 +131,50 @@ function App() {
               />
             )}
           </ul>
-          <input
-            ref={inputHex}
-            type="text"
-            placeholder='insert hex'
-            onChange={(e) => setHexValue(e.target.value)} 
-          />
-          <div 
-            style={{
-              backgroundColor: HexValue
-            }}
-            className='preview-box'/>
-        </motion.div>
-      </div>
-      <motion.ul className='container-list'> 
-        <AnimatePresence  initial={false}>
-          {toDoList.map((item) => 
-            <motion.li className='list-box'
+          <div className='preview-container'>
+            <input
+              ref={inputHex}
+              type="text"
+              placeholder='insert hex'
+              onChange={(e) => setHexValue(e.target.value)} 
+            />
+            <div 
               style={{
-                backgroundColor: item.color,
-                color: pickTextColorBasedOnBgColorAdvanced(item.color, '#FFFFFF', '#000000')
+                backgroundColor: HexValue
               }}
-              initial = {{ left: 100, opacity: 0 }}
-              animate = {{ left: 0, opacity: 1 }}
-              exit = {{ left: 100, opacity: 0 }}
-              key={item.id} 
-              layout
-            >
-              <p>
-                {item.text}
-              </p>
-              <motion.div className='remove-btn'
-                onClick={() => removeItem(item.id)}
-                whileHover={{
-                  scale: 1.2
+              className='preview-box'/>
+          </div>
+        </motion.div>
+        <motion.ul className='container-list'> 
+          <AnimatePresence  initial={false}>
+            {toDoList.map((item) => 
+              <motion.li className='list-box'
+                style={{
+                  backgroundColor: item.color,
+                  color: pickTextColorBasedOnBgColorAdvanced(item.color, '#FFFFFF', '#000000')
                 }}
+                initial = {{ left: 100, opacity: 0 }}
+                animate = {{ left: 0, opacity: 1 }}
+                exit = {{ left: 100, opacity: 0 }}
+                key={item.id} 
+                layout
               >
-                <CheckMark fill={pickTextColorBasedOnBgColorAdvanced(item.color, '#FFFFFF', '#000000')}/>
-              </motion.div>
-            </motion.li>
-          )}
-        </AnimatePresence>
-      </motion.ul>
+                <p>
+                  {item.text}
+                </p>
+                <motion.div className='remove-btn'
+                  onClick={() => removeItem(item.id)}
+                  whileHover={{
+                    scale: 1.2
+                  }}
+                >
+                  <CheckMark fill={pickTextColorBasedOnBgColorAdvanced(item.color, '#FFFFFF', '#000000')}/>
+                </motion.div>
+              </motion.li>
+            )}
+          </AnimatePresence>
+        </motion.ul>
+      </div>
     </div>
   )
 }
